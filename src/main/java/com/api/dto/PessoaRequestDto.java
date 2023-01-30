@@ -12,18 +12,18 @@ import org.hibernate.validator.constraints.Length;
  */
 @Schema(name = "Pessoa request DTO")
 public class PessoaRequestDto {
-    
+
     @NotBlank(message = "Nome é obrigatório.")
     @Length(min = 3, max = 40, message = "Nome requer no mínimo {min} e no máximo {max} caracteres.")
     private String nome;
-    
+
     @Email
     @NotBlank(message = "E-mail é obrigatório.")
     @Length(min = 3, max = 40, message = "E-mail requer no mínimo {min} e no máximo {max} caracteres.")
     private String email;
-    
+
     //Método para converter entidade em DTO e salvar.
-    public PessoaModel converterCategoriaDtoParaEntidade() {
+    public PessoaModel converterPessoaDtoParaEntidade() {
         return new PessoaModel(nome, email);
     }
 }

@@ -21,7 +21,7 @@ public class PessoaResponseDto {
     }
 
     //Método para converter entidade em DTO.
-    public static PessoaResponseDto converterParaPessoaDto(PessoaModel pessoaModel) {
+    public static PessoaResponseDto converterEntidadeParaPessoaDto(PessoaModel pessoaModel) {
         return new PessoaResponseDto(pessoaModel.getId(), pessoaModel.getNome(), pessoaModel.getEmail());
     }
 
