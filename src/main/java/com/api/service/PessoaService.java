@@ -1,5 +1,6 @@
 package com.api.service;
 
+import com.api.exception.ValorExistenteException;
 import com.api.model.PessoaModel;
 import com.api.repository.PessoaRepository;
 import java.util.List;
@@ -17,12 +18,22 @@ public class PessoaService {
     private PessoaRepository pessoaRepository;
 
     public PessoaModel salvar(PessoaModel pessoaModel) {
-
+        
+        verificarEmailExistente(pessoaModel);
         return pessoaRepository.save(pessoaModel);
     }
 
     public List<PessoaModel> listar() {
 
         return pessoaRepository.findAll();
+    }
+    
+    private void verificarEmailExistente(PessoaModel pessoaModel) {
+        
+        PessoaModel pessoaEncontrada = pessoaRepository.findByEmail(pessoaModel.getEmail());
+        
+        if (pessoaEncontrada != null) {
+            throw new ValorExistenteException(String.format("O e-mail [%s] já existe.", pessoaModel.getEmail()));
+        }
     }
 }
