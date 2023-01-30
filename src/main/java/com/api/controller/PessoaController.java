@@ -4,11 +4,13 @@ import com.api.dto.PessoaRequestDto;
 import com.api.dto.PessoaResponseDto;
 import com.api.model.PessoaModel;
 import com.api.service.PessoaService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +31,7 @@ public class PessoaController {
     @Autowired
     PessoaService pessoaService;
 
+    @Operation(description = "Listar")
     @GetMapping("/listar")
     public ResponseEntity<List<PessoaResponseDto>> listar() {
 
@@ -38,6 +41,7 @@ public class PessoaController {
                         .collect(Collectors.toList()), HttpStatus.OK);
     }
 
+    @Operation(description = "Salvar")
     @PostMapping("/salvar")
     public ResponseEntity<PessoaResponseDto> salvar(@Valid @RequestBody PessoaRequestDto pessoaRequestDto) {
 

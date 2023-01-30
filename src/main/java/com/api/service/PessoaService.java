@@ -4,7 +4,6 @@ import com.api.model.PessoaModel;
 import com.api.repository.PessoaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 /**
@@ -24,6 +23,6 @@ public class PessoaService {
 
     public List<PessoaModel> listar() {
 
-        return pessoaRepository.findAll(Sort.by(Sort.Direction.DESC));
+        return pessoaRepository.findAll();
     }
 }
