@@ -38,7 +38,7 @@ public class PessoaModel {
         this.nome = nome;
         this.email = email;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -61,10 +61,5 @@ public class PessoaModel {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "PessoaModel{" + "id=" + id + ", nome=" + nome + ", email=" + email + '}';
     }
 }

@@ -46,6 +46,5 @@ public class PessoaController {
 
         PessoaModel pessoaSalva = pessoaService.salvar(pessoaRequestDto.converterPessoaDtoParaEntidade());
         return new ResponseEntity<PessoaResponseDto>(PessoaResponseDto.converterEntidadeParaPessoaDto(pessoaSalva), HttpStatus.CREATED);
-
     }
 }

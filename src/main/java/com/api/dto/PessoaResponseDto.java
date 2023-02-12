@@ -48,4 +48,9 @@ public class PessoaResponseDto {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "PessoaResponseDto{" + "id=" + id + ", nome=" + nome + ", email=" + email + '}';
+    }
 }

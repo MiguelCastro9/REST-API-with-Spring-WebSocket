@@ -1,9 +1,11 @@
 package com.api.handler;
 
+import com.api.dto.PessoaResponseDto;
 import com.api.service.PessoaService;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -34,7 +36,10 @@ public class WebSocketHandler extends TextWebSocketHandler {
             @Override
             public void run() {
                 try {
-                    session.sendMessage(new TextMessage(pessoaService.listar().toString()));
+                    session.sendMessage(new TextMessage(
+                            pessoaService.listar().stream().map(pessoa
+                                    -> PessoaResponseDto.converterEntidadeParaPessoaDto(pessoa))
+                                    .collect(Collectors.toList()).toString()));
                 } catch (IOException ex) {
                     ex.getStackTrace();
                 }
