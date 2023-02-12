@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PessoaController {
 
     @Autowired
-    PessoaService pessoaService;
+    private PessoaService pessoaService;
 
     @Operation(description = "Listar")
     @GetMapping("/listar")

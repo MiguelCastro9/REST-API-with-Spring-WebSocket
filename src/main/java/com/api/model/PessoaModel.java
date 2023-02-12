@@ -63,4 +63,8 @@ public class PessoaModel {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "PessoaModel{" + "id=" + id + ", nome=" + nome + ", email=" + email + '}';
+    }
 }
