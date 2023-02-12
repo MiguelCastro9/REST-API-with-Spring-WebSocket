@@ -1,6 +1,6 @@
 # Overview
 
-Real-time dashboard developed using Spring WebSocket, SpringBoot, persistence and REST API architecture.
+Real-time dashboard developed using Spring WebSocket, Swagger, Exception Handling, SpringBoot, persistence and REST API architecture.
 
 ## Doc
 
